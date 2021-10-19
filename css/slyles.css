@@ -86,6 +86,7 @@ button {
 .navigation.position {
   display: flex;
   align-items: center;
+  margin-right: auto;
 }
 .site-navigation {
   display: flex;
@@ -96,7 +97,6 @@ button {
 }
 .contacts {
   display: flex;
-  margin-left: auto;
 }
 .header-logo {
   margin-right: 93px;
@@ -146,7 +146,11 @@ button {
   color: var(--primary-text-color);
 }
 .navigation-list .link:hover,
-.contacts-list .link:hover {
+.navigation-list .link:focus,
+.contacts-list .link:hover,
+.contacts-list .link:focus,
+.address-list .link:hover,
+.address-list .link:focus {
   color: var(--accent-blue-color);
 }
 
@@ -164,20 +168,23 @@ button {
 .physical-address {
   color: var(--accent-text-color);
 }
-.address-list .link:hover,
+/* .address-list .link:hover,
 .address-list .link:focus {
   color: var(--accent-blue-color);
-}
+} */
 /* main for a start page */
 .hero-section {
   padding-top: 200px;
   padding-bottom: 200px;
-  text-align: center;
   background-color: var(--accent-background-color);
 }
+.container.hero {
+  width: 696px;
+  text-align: center;
+}
+
 .hero-title {
   margin-bottom: 30px;
-  padding: 0 252px;
 
   font-weight: 900;
   font-size: 44px;
@@ -187,14 +194,12 @@ button {
   color: var(--accent-text-color);
 }
 .hero-button {
-  width: 200px;
-  height: 50px;
-  left: 700px;
-  top: 430px;
+  padding: 10px 32px;
 
   background: var(--accent-blue-color);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   border-radius: 4px;
+  border: transparent;
   font-weight: bold;
   font-size: 16px;
   line-height: 1.88;
@@ -207,8 +212,9 @@ button {
 .team-list {
   display: flex;
 }
-.advantages-list .list {
-  width: calc(100%-90px) / 4;
+.advantages-list .list,
+.team-list .list {
+  width: calc((100% - 90px) / 4);
 }
 .advantages-list .list:not(:last-child),
 .businessline-list .list:not(:last-child),
@@ -234,6 +240,9 @@ button {
   padding-top: 0px;
   padding-bottom: 94px;
 }
+.businessline-list .list {
+  width: calc((100% - 60px) / 3);
+}
 
 .businessline-title,
 .team-title {
@@ -251,30 +260,39 @@ button {
   padding-bottom: 30px;
   text-align: center;
 }
+.team-list .list {
+  background: #ffffff;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 0px 0px 4px 4px;
+}
 .team-subtitle {
+  margin-bottom: 10px;
   font-weight: 500;
   font-size: 16px;
   line-height: 1.18;
   letter-spacing: 0.03em;
   color: var(--titles-color);
-  margin-top: 30px;
 }
 .team-description {
   font-size: 16px;
   line-height: 1.18;
   letter-spacing: 0.03em;
   color: var(--primary-text-color);
-  margin-top: 10px;
 }
 /* main for portfolio page */
+.filter-buttons {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+.filter-buttons .list:not(:last-child) {
+  margin-right: 8px;
+}
 .portfolio-button {
-  width: 128px;
-  height: 38px;
-  left: 576px;
-  top: 174px;
+  padding: 6px 22px;
   border-radius: 4px;
   border: transparent;
-  padding: 0;
 
   background: #f5f4fa;
   font-weight: 500;
@@ -285,12 +303,13 @@ button {
   color: var(--titles-color);
 }
 .portfolio-button.all {
-  width: 73px;
-  height: 38px;
-  left: 495px;
-  top: 174px;
+  padding: 6px 22px;
+  border-radius: 4px;
+  border: transparent;
   box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
     0px 2px 2px rgba(0, 0, 0, 0.12);
+  background: var(--accent-blue-color);
+  color: var(--accent-text-color);
 }
 .portfolio-button:hover,
 .portfolio-button:focus,
@@ -301,27 +320,20 @@ button {
   box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
     0px 2px 2px rgba(0, 0, 0, 0.12);
 }
-.filter-buttons {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 50px;
-}
-.filter-buttons .list:not(:last-child) {
-  margin-right: 8px;
-}
+
 .works-list {
   display: flex;
   flex-wrap: wrap;
 }
 .works-list .list {
-  width: calc(100%-60px) / 3;
+  width: calc((100% - 60px)) / 3;
+  margin-bottom: 30px;
 }
 .works-list .list:nth-last-child(-n + 3) {
   margin-bottom: 0px;
 }
-.works-list .list:nth-child(3n + 2) {
+.works-list .list:not(:nth-child(3n)) {
   margin-right: 30px;
-  margin-left: 30px;
 }
 .work-description {
   padding: 20px 24px;
@@ -334,6 +346,7 @@ button {
   line-height: 2;
   letter-spacing: 0.06em;
   color: var(--titles-color);
+  margin-bottom: 4px;
 }
 .workslist-category {
   font-size: 16px;
